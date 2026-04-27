@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic Status ID | AI Hub Verification</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for High-Tech HUD look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-active">
+    <div class="hud-background">
+        <div class="grid-overlay"></div>
+        <div class="glow-sphere"></div>
+    </div>
+
+    <!-- Login Screen Overlay -->
+    <div id="view-login" class="login-overlay">
+        <div class="secure-gate-container">
+            <!-- Node A: Identification -->
+            <div class="gate-node">
+                <div class="node-inner center-text">
+                    <h2 class="node-title">CIVIC SECURE GATE</h2>
+                    <span class="node-subtext">Awaiting Neural Sync Authorization</span>
+                </div>
+            </div>
+
+            <!-- Node B: Credentials -->
+            <div class="gate-node">
+                <div class="node-inner">
+                    <div class="input-wrapper">
+                        <input type="text" placeholder="Citizen IDX Code" class="recessed-input" disabled>
+                    </div>
+                    <div class="input-wrapper" style="margin-top: 10px;">
+                        <input type="password" placeholder="Access Cipher" class="recessed-input" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Primary Action Button -->
+            <button id="btn-biometric" class="gate-pill-btn">USE BIOMETRICS</button>
+        </div>
+
+        <!-- Scan Modal Popup -->
+        <div id="scan-modal" class="scan-modal hidden">
+            <div class="scan-card glass-panel">
+                <div class="scan-laser"></div>
+                <div class="scan-target"></div>
+                <div class="scan-text-overlay">BIOMETRIC SYNC ACTIVE</div>
+                <small style="color: rgba(255,255,255,0.4); font-size: 0.6rem; font-family: 'Space Mono', monospace;">Verifying Ocular Path...</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Continuous Scan Popup -->
+    <div id="scanner-popup" class="scanner-status">
+        <span class="scan-pulse"></span>
+        <span class="scan-text">VERIFYING NEURAL PATHWAY...</span>
+    </div>
+
+    <!-- Simulated Top Bar / Controller Menu -->
+    <header class="controller-bar">
+        <div class="system-status">
+            <span class="pulse-node verified"></span>
+            <span class="status-text">HUB SYNC: SECURE</span>
+        </div>
+        <div class="brand-title">CIVIC STATUS ID // SECURE_VIEW_V3</div>
+        <div class="role-selector">
+            <span class="role-label">ACCESS VIEW:</span>
+            <select id="role-select">
+                <option value="owner">Citizen Owner</option>
+                <option value="medical">Medical Officer</option>
+                <option value="security">Security Officer</option>
+            </select>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        <!-- 🟩 LEFT PANEL: Static Public Information -->
+        <aside class="left-pane">
+            <div class="pane-header">
+                <span class="glitch-text" data-text="CIVIC IDENTITY">CIVIC IDENTITY</span>
+            </div>
+            
+            <div class="avatar-box">
+                <div class="avatar-frame">
+                    <img src="benjamin_avatar.png" class="vector-silhouette" alt="Benjamin Subasinghe">
+                    <div class="scanner-sweep"></div>
+                </div>
+            </div>
+
+            <div class="identity-info">
+                <h1 class="citizen-name">Benjamin Subasinghe</h1>
+                <p class="citizen-tag">IDX-9982-BETA</p>
+                
+                <div class="status-badge" data-status="public">
+                    <span>Visibility: Public</span>
+                </div>
+            </div>
+
+            <ul class="public-details">
+                <li>
+                    <span class="detail-label">Age</span>
+                    <span class="detail-value">28</span>
+                </li>
+                <li>
+                    <span class="detail-label">Residency</span>
+                    <span class="detail-value">Colombo</span>
+                </li>
+                <li>
+                    <span class="detail-label">Citizenship</span>
+                    <span class="detail-value">Sri Lanka</span>
+                </li>
+                <li>
+                    <span class="detail-label">Data Sync</span>
+                    <span class="detail-value cyan pulse-text">ACTIVELY SYNCED</span>
+                </li>
+                <li>
+                    <span class="detail-label">Behavioral State</span>
+                    <span class="detail-value amber">MONITORED</span>
+                </li>
+                <li>
+                    <span class="detail-label">System Authentication</span>
+                    <span class="detail-value cyan">Verified by Central Civic System</span>
+                </li>
+            </ul>
+
+            <div class="pane-footer">
+                <span class="footer-msg">Secured Civic Workspace Node</span>
+            </div>
+        </aside>
+
+        <!-- 🟦 RIGHT SPACE: Dynamic Workspace categories layout -->
+        <section class="right-pane" id="workspace">
+            
+            <!-- STATE 1: Default Category Matrix Selection Pane -->
+            <div class="state-container list-view" id="view-categories">
+                <div class="section-title">SELECT DATA CATEGORY</div>
+                <div class="category-grid">
+                    <div class="category-card" data-category="financial">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">$</span>
+                            <span class="cat-name">Financial Status</span>
+                            <span class="cat-desc">CT, Debt, Assets</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="medical">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">♥</span>
+                            <span class="cat-name">Medical Status</span>
+                            <span class="cat-desc">Neural Sync, Vitals</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="residency">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">⟁</span>
+                            <span class="cat-name">Residency Status</span>
+                            <span class="cat-desc">Transit, Zone Logins</span>
+                        </div>
+                    </div>
+
+                    <div class="category-card" data-category="career">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">🛠</span>
+                            <span class="cat-name">Career Status</span>
+                            <span class="cat-desc">Jobs, Salary, AP Insurance</span>
+                        </div>
+                    </div>
+
+                    <!-- Compliance -->
+                    <div class="category-card" data-category="compliance">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">⚖</span>
+                            <span class="cat-name">Compliance</span>
+                            <span class="cat-desc">Infractions, Zone Locks</span>
+                        </div>
+                    </div>
+
+                    <!-- Data Footprint -->
+                    <div class="category-card" data-category="footprint">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">
+                                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 0-4 20M12 2a15.3 15.3 0 0 1 4 20"/></svg>
+                            </span>
+                            <span class="cat-name">Network Claims</span>
+                            <span class="cat-desc">Sync Nodes, Digital Claims</span>
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="category-card" data-category="social">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">
+                                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                            </span>
+                            <span class="cat-name">Social Life</span>
+                            <span class="cat-desc">Folk, Media Streams</span>
+                        </div>
+                    </div>
+
+                    <!-- Active logs -->
+                    <div class="category-card" data-category="logs">
+                        <div class="card-bg"></div>
+                        <div class="card-content">
+                            <span class="cat-icon">
+                                <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                            </span>
+                            <span class="cat-name">Monitoring Logs</span>
+                            <span class="cat-desc">Terms, Legal Syncs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STATE 2: The Authentication/Consent Gates -->
+            <div class="state-container auth-view hidden" id="view-auth">
+                <!-- Outer overlay framing overlay locks layout controllers -->
+                <div class="lock-screen" id="lock-screen">
+                    
+                    <!-- Scenario A: Official Officer Request Consent -->
+                    <div class="officer-request hidden" id="officer-prompt">
+                        <div class="alert-icon">⚠️</div>
+                        <div class="alert-title">OFFICIAL ACCESS REQUEST</div>
+                        <p class="alert-desc"><span class="highlight cyan" id="officer-role">Security Officer</span> requests authorization node clearance to proceed.</p>
+                        <div class="btn-group">
+                            <button class="auth-btn approve" id="approve-request">APPROVE ACCESS</button>
+                            <button class="auth-btn deny" id="deny-request">DENY</button>
+                        </div>
+                    </div>
+
+                    <!-- Scenario B: Biometric verification (Required by both) -->
+                    <div class="biometric-gate hidden" id="biometric-prompt">
+                        <div class="sensor-pad scan-target" id="sensor-pad" style="overflow: hidden; margin: 0 auto 15px;">
+                            <div class="scan-laser"></div>
+                        </div>
+                        <div class="gate-title">BIOMETRIC AUTH REQUIRED</div>
+                        <p class="gate-desc">Scanning owner verification index Node...</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- STATE 3: Unlocked Horizontal Slider Panel -->
+            <div class="state-container details-view hidden" id="view-details">
+                <div class="view-header">
+                    <button class="back-btn" id="exit-view">⟵ BACK</button>
+                    <span class="view-title" id="active-category-title">CATEGORY</span>
+                </div>
+                <!-- Track row sliders loaded -->
+                <div class="slider-track" id="data-panels-track">
+                    <!-- Panels inserted items dynamically loaded by JS node frameworks controllers -->
+                </div>
+                
+                <!-- Expanded Card Modal Backdrop Node -->
+                <div id="card-modal-backdrop" class="card-modal-backdrop"></div>
+
+                <!-- Spread View Interactive Handle -->
+                <div id="spread-handle" class="spread-handle">
+                    <div class="handle-icon-shape"></div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
